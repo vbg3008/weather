@@ -36,7 +36,7 @@ window.addEventListener('load',() => {
                 tempratureDescription.innerHTML = description;
                 locationTimezon.textContent = regionNames.of(country);
                 console.log(icon)
-                var iLink = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                var iLink = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                 wIcon.setAttribute('src' , iLink);
 
 
