@@ -4,6 +4,7 @@ window.addEventListener('load',() => {
     const tempratureDescription = document.querySelector('.temprature-description')
     const tempratureDegree = document.querySelector('.temprature-degree')
     const locationTimezon = document.querySelector('.location-timezone')
+    const wIcon = document.querySelector('.icon')
 
 
     if(navigator.geolocation){
@@ -21,7 +22,7 @@ window.addEventListener('load',() => {
             .then(data =>{
                 console.log(data);
                 const {temp } = data.main
-                const {description , main} = data.weather[0]
+                const {description , main , icon} = data.weather[0]
                 const {country} = data.sys
 
                 let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
@@ -34,6 +35,9 @@ window.addEventListener('load',() => {
                 tempratureDegree.innerHTML = temp;
                 tempratureDescription.innerHTML = description;
                 locationTimezon.textContent = regionNames.of(country);
+                console.log(icon)
+                var iLink = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                wIcon.setAttribute('src' , iLink);
 
 
             })
